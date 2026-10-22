@@ -245,3 +245,8 @@ data/raw/*
 # Skills do Streamlit (symlinks para o venv; cada aluno roda `streamlit skills`)
 .claude/skills/
 .agents/skills/
+
+# Ignorar ficheiros CSV na pasta data
+data/raw/*.csv
+data/clean/*.csv
+*.csv
