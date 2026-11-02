@@ -17,3 +17,30 @@
 - **Público-alvo:** Público interessado em cinema, analistas de dados, pesquisadores e profissionais do setor audiovisual.
 - **Qual decisão pode ser apoiada por essa métrica?** Identificar quais grupos de filmes apresentam maior proporção de avaliações positivas, auxiliando na comparação entre categorias ou períodos.
 - **O que comunica ao público-alvo:** Mostra a participação dos filmes com avaliações iguais ou superiores a 7, facilitando a compreensão do desempenho geral dos títulos analisados.
+
+## Métrica 3: Média de votos por filme
+
+- **Variável:** `vote_count` — quantidade de votos/avaliações recebidas por cada filme.
+- **O que mede:** O volume médio de engajamento e participação do público nos filmes do conjunto selecionado.
+- **Por que foi escolhida:** Avalia a relevância e a popularidade dos filmes, visto que nota alta com poucos votos pode não refletir a opinião geral do público.
+- **Público-alvo:** Analistas de mercado audiovisual, pesquisadores, plataformas de streaming e entusiastas de cinema.
+- **Qual decisão pode ser apoiada por essa métrica?** Identificar se os filmes de determinado nicho ou faixa de nota possuem grande alcance de público ou se representam um consumo mais restrito.
+- **O que comunica ao público-alvo:** Aponta a expressividade da amostragem de votos, indicando o nível geral de engajamento do público com os títulos analisados.
+
+## Métrica 4: Duração média dos filmes
+
+- **Variável:** `runtime_minutes` — tempo de duração do filme em minutos.
+- **O que mede:** O tempo médio de execução das produções no conjunto filtrado.
+- **Por que foi escolhida:** A duração é um fator estrutural importante da produção cinematográfica e pode influenciar a aceitação do público e a distribuição comercial.
+- **Público-alvo:** Produtores cinematográficos, programadores de cinema/streaming e pesquisadores.
+- **Qual decisão pode ser apoiada por essa métrica?** Orientar decisões de produção e programação de catálogo com base no tempo padrão dos filmes mais bem avaliados.
+- **O que comunica ao público-alvo:** Revela o perfil de extensão temporal das produções consideradas na análise.
+
+## Métrica 5: Quantidade absoluta de filmes com avaliação ≥ 7
+
+- **Variável:** `rating_out_of_10` (classe `"7 ou mais"`).
+- **O que mede:** O número absoluto de produções que atingiram nota igual ou superior a 7.
+- **Por que foi escolhida:** Complementa a métrica percentual ao fornecer a dimensão exata e concreta do volume de filmes bem avaliados na amostra.
+- **Público-alvo:** Gestores de acervo, curadores de festivais/plataformas e analistas de dados.
+- **Qual decisão pode ser apoiada por essa métrica?** Determinar se há volume suficiente de títulos de alta qualidade para a montagem de catálogos, mostras ou coleções temáticas.
+- **O que comunica ao público-alvo:** Informa o total exato de filmes considerados "destaque" dentro da seleção atual.

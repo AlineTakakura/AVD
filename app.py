@@ -6,7 +6,6 @@ import streamlit as st
 from src.data_loader import load_data
 
 st.set_page_config(page_title="EDA — Filmes e Entretenimento", page_icon="🎬", layout="wide")
-
 st.title("Análise Exploratória de Dados — Filmes e Entretenimento")
 st.caption("Explore os dados dos filmes com filtros que se aplicam a todos os gráficos.")
 
@@ -15,10 +14,14 @@ VARS_QUANT = [
     "box_office_usd", "budget_usd",
 ]
 VAR_CLASSE = "rating_out_of_10"
-COR_ABAIXO = "#6B8F91"       # verde-azulado suave para avaliações abaixo de 7
-COR_SETE = "#D6A85F"          # dourado suave para avaliações 7 ou mais
-COR_DESTAQUE = "#527C91"      # azul-petróleo para gráficos sem divisão por classe
-CORES_CLASSE = alt.Scale(domain=["Abaixo de 7", "7 ou mais"], range=[COR_ABAIXO, COR_SETE])
+COR_ABAIXO = "#7186A6"
+COR_SETE = "#C58B78"
+COR_DESTAQUE = "#654653"
+
+CORES_CLASSE = alt.Scale(
+    domain=["Abaixo de 7", "7 ou mais"],
+    range=[COR_ABAIXO, COR_SETE]
+)
 
 
 @st.cache_data
@@ -65,6 +68,7 @@ with st.sidebar:
         options=vars_disponiveis,
         default=vars_disponiveis,
         help="Escolha quais variáveis aparecem nos gráficos de distribuição e correlação. Não desativa os outros filtros.",
+        key="variaveis_graficos"
     )
 
     classes_disponiveis = [c for c in ["Abaixo de 7", "7 ou mais"] if c in df[VAR_CLASSE].dropna().unique()]
@@ -73,6 +77,7 @@ with st.sidebar:
         options=classes_disponiveis,
         default=classes_disponiveis,
         help="Desmarque uma classe para removê-la de todos os gráficos.",
+        key="classes_avaliacao"
     )
 
     st.subheader("Intervalos numéricos")
@@ -168,16 +173,30 @@ with tab1:
 
 with tab2:
     st.subheader("Indicadores do conjunto filtrado")
-    k1, k2, k3, k4 = st.columns(4)
+    k1, k2, k3, k4, k5 = st.columns(5)
     total = len(df_filtrado)
     qtd_sete = int(df_filtrado[VAR_CLASSE].eq("7 ou mais").sum())
+
+    # Métrica 1: Total de filmes analisados
     k1.metric("Total de filmes", f"{total:,}")
-    k2.metric("Avaliação 7 ou mais", f"{qtd_sete:,}")
-    k3.metric("Percentual com nota ≥ 7", f"{qtd_sete / total * 100:.1f}%" if total else "—")
+
+    # Métrica 2: Percentual com avaliação ≥ 7
+    k2.metric("Percentual nota ≥ 7", f"{qtd_sete / total * 100:.1f}%" if total else "—")
+
+    # Métrica 3: Média de votos por filme
     if "vote_count" in df_filtrado and df_filtrado["vote_count"].notna().any():
-        k4.metric("Média de votos", f"{df_filtrado['vote_count'].mean():,.0f}")
+        k3.metric("Média de votos", f"{df_filtrado['vote_count'].mean():,.0f}")
     else:
-        k4.metric("Média de votos", "—")
+        k3.metric("Média de votos", "—")
+
+    # Métrica 4: Duração média dos filmes
+    if "runtime_minutes" in df_filtrado and df_filtrado["runtime_minutes"].notna().any():
+        k4.metric("Duração média", f"{df_filtrado['runtime_minutes'].mean():.1f} min")
+    else:
+        k4.metric("Duração média", "—")
+
+    # Métrica 5: Quantidade absoluta de filmes com avaliação ≥ 7
+    k5.metric("Filmes nota ≥ 7", f"{qtd_sete:,}")
 
     st.divider()
     c1, c2 = st.columns(2)
@@ -212,8 +231,6 @@ with tab2:
         if relacao.empty:
             st.warning("Não há pares válidos de orçamento e bilheteria após os filtros.")
         else:
-            # Os dados parecem estar em log10 quando os valores ficam na faixa de 0 a 10.
-            # Nesse caso, não aplicamos log10 novamente.
             ja_log = (
                 relacao["budget_usd"].min() >= 0
                 and relacao["box_office_usd"].min() >= 0
