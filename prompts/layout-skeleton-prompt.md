@@ -4,7 +4,7 @@ Preencha cada bloco e envie à ferramenta de IA.
 
 ## Contexto
 
-<!-- Quem você é, qual a disciplina/projeto, qual o dataset e o objetivo do dashboard. -->
+Sou aluna da disciplina de Análise e visualização de dados(AVD). O projeto consiste em construir um dashboard interativo utilizando o dataset Recent Movies and Entertainment Dataset (2024–2026), extraído do Kaggle. O objetivo do dashboard é apresentar uma análise exploratória visual sobre o desempenho financeiro (orçamento e bilheteria), avaliações do público e características de produção (duração, gênero, estúdio) dos filmes lançados entre 2024 e 2026.
 
 ## Entrada
 
