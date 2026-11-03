@@ -1,20 +1,17 @@
-# Configuração do Streamlit. Descomente e ajuste conforme o projeto avançar.
-# O tema pode ser trocado pelo menu ⋮ → Settings → Choose app theme.
-
 [theme]
-paddingTop = "0.5rem"     # espaço abaixo da barra do topo (valor entre aspas)
-# font = "sans serif"     # "sans serif", "serif" ou "monospace"
+paddingTop = "0.5rem"
+font = "sans serif"
 
 [theme.light]
-primaryColor = "#ff4b4b"            # cor de destaque (widgets, links)
-backgroundColor = "#ffffff"         # fundo da página
-secondaryBackgroundColor = "#f0f2f6"  # fundo da sidebar e de widgets
-textColor = "#31333f"               # cor do texto
-borderColor = "#d5dae5"
+primaryColor = "#7186A6"
+backgroundColor = "#F5F3F0"
+secondaryBackgroundColor = "#EAE6E2"
+textColor = "#33343A"
+borderColor = "#D5CFC9"
 
 [theme.dark]
-primaryColor = "#ff4b4b"
-backgroundColor = "#0e1117"
-secondaryBackgroundColor = "#262730"
-textColor = "#fafafa"
-borderColor = "#41444e"
+primaryColor = "#A5B5CE"
+backgroundColor = "#191B22"
+secondaryBackgroundColor = "#292C35"
+textColor = "#F3F0ED"
+borderColor = "#454956"
