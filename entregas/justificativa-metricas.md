@@ -21,7 +21,7 @@
 ## Métrica 3: Média de votos por filme
 
 - **Variável:** `vote_count` — quantidade de votos/avaliações recebidas por cada filme.
-- **O que mede:** O volume médio de engajamento e participação do público nos filmes do conjunto selecionado.
+- **O que mede:** A quantidade média de votos recebidos por filme no conjunto de dados selecionado, indicando o nível de participação registrado para os títulos analisados.
 - **Por que foi escolhida:** Avalia a relevância e a popularidade dos filmes, visto que nota alta com poucos votos pode não refletir a opinião geral do público.
 - **Público-alvo:** Analistas de mercado audiovisual, pesquisadores, plataformas de streaming e entusiastas de cinema.
 - **Qual decisão pode ser apoiada por essa métrica?** Identificar se os filmes de determinado nicho ou faixa de nota possuem grande alcance de público ou se representam um consumo mais restrito.
@@ -31,7 +31,7 @@
 
 - **Variável:** `runtime_minutes` — tempo de duração do filme em minutos.
 - **O que mede:** O tempo médio de execução das produções no conjunto filtrado.
-- **Por que foi escolhida:** A duração é um fator estrutural importante da produção cinematográfica e pode influenciar a aceitação do público e a distribuição comercial.
+- **Por que foi escolhida:** A duração é uma característica importante das produções cinematográficas e permite identificar o perfil temporal dos filmes analisados, possibilitando comparações entre diferentes grupos.
 - **Público-alvo:** Produtores cinematográficos, programadores de cinema/streaming e pesquisadores.
 - **Qual decisão pode ser apoiada por essa métrica?** Orientar decisões de produção e programação de catálogo com base no tempo padrão dos filmes mais bem avaliados.
 - **O que comunica ao público-alvo:** Revela o perfil de extensão temporal das produções consideradas na análise.
